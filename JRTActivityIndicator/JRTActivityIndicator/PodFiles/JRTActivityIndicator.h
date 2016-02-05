@@ -21,10 +21,15 @@
 @import UIKit;
 
 @protocol JRTActivityIndicatorViewProtocol
+
 - (void)setMessage:(NSString *)message;
+
 @end
 
 @interface JRTActivityIndicator : NSObject
+
+- (NSString *)ViewNibName;
+
 - (void)show;
 - (void)showAnimated:(BOOL)animated;
 - (void)showAnimated:(BOOL)animated message:(NSString *)message;
@@ -33,4 +38,5 @@
 - (void)hideAnimated:(BOOL)animated;
 - (void)ShowNetworkActivity;
 - (void)HideNetworkActivity;
+
 @end

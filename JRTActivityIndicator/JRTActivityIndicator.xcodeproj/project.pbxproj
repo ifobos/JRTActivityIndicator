@@ -16,7 +16,7 @@
 		31ABA5E61C50305D002BD5E9 /* JRTActivityIndicatorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ABA5E31C50305D002BD5E9 /* JRTActivityIndicatorView.xib */; };
 		31ABA5EA1C50308C002BD5E9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31ABA5E81C50308C002BD5E9 /* ViewController.m */; };
 		31ABA5EB1C50308C002BD5E9 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31ABA5E91C50308C002BD5E9 /* ViewController.xib */; };
-		31ABA5F01C5033F1002BD5E9 /* box-with-rounded-corners-and-drop-shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = 31ABA5EF1C5033F1002BD5E9 /* box-with-rounded-corners-and-drop-shadow.png */; };
+		31AF5D851C64FCA0004B411C /* square-rounded.png in Resources */ = {isa = PBXBuildFile; fileRef = 31AF5D841C64FCA0004B411C /* square-rounded.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		31ABA5E71C50308C002BD5E9 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		31ABA5E81C50308C002BD5E9 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		31ABA5E91C50308C002BD5E9 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
-		31ABA5EF1C5033F1002BD5E9 /* box-with-rounded-corners-and-drop-shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "box-with-rounded-corners-and-drop-shadow.png"; sourceTree = "<group>"; };
+		31AF5D841C64FCA0004B411C /* square-rounded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "square-rounded.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +95,10 @@
 			children = (
 				31ABA5DF1C50305D002BD5E9 /* JRTActivityIndicator.h */,
 				31ABA5E01C50305D002BD5E9 /* JRTActivityIndicator.m */,
-				31ABA5EF1C5033F1002BD5E9 /* box-with-rounded-corners-and-drop-shadow.png */,
 				31ABA5E11C50305D002BD5E9 /* JRTActivityIndicatorView.h */,
 				31ABA5E21C50305D002BD5E9 /* JRTActivityIndicatorView.m */,
 				31ABA5E31C50305D002BD5E9 /* JRTActivityIndicatorView.xib */,
+				31AF5D841C64FCA0004B411C /* square-rounded.png */,
 			);
 			path = PodFiles;
 			sourceTree = "<group>";
@@ -162,8 +162,8 @@
 			files = (
 				31ABA5E61C50305D002BD5E9 /* JRTActivityIndicatorView.xib in Resources */,
 				31ABA5D41C502FE6002BD5E9 /* Assets.xcassets in Resources */,
-				31ABA5F01C5033F1002BD5E9 /* box-with-rounded-corners-and-drop-shadow.png in Resources */,
 				31ABA5EB1C50308C002BD5E9 /* ViewController.xib in Resources */,
+				31AF5D851C64FCA0004B411C /* square-rounded.png in Resources */,
 				31ABA5D71C502FE6002BD5E9 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

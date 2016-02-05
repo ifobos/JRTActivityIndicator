@@ -21,12 +21,10 @@
 #import "JRTActivityIndicator.h"
 #import "JRTActivityIndicatorView.h"
 
-#define ShowNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
-#define HideNetworkActivityIndicator() [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
-
-
 @interface JRTActivityIndicator ()
-@property (nonatomic, strong) UIView<JRTActivityIndicatorViewProtocol> * activityIndicatorview;
+
+@property (nonatomic, strong) UIView<JRTActivityIndicatorViewProtocol> *activityIndicatorview;
+
 @end
 
 CGFloat const kActivityIndicatorAnimationDuration = 0.35;
@@ -35,15 +33,12 @@ CGFloat const kActivityIndicatorAnimationDuration = 0.35;
 
 #pragma mark - Getters
 
-- (NSString *)ViewNibName
-{
+- (NSString *)ViewNibName {
     return @"JRTActivityIndicatorView";
 }
 
-- (UIView<JRTActivityIndicatorViewProtocol> *)activityIndicatorview
-{
-    if (!_activityIndicatorview)
-    {
+- (UIView<JRTActivityIndicatorViewProtocol> *)activityIndicatorview {
+    if (!_activityIndicatorview) {
         UINib *nib = [UINib nibWithNibName:[self ViewNibName] bundle:nil];
         _activityIndicatorview = [[nib instantiateWithOwner:self options:nil] firstObject];
     }
@@ -51,114 +46,102 @@ CGFloat const kActivityIndicatorAnimationDuration = 0.35;
 }
 
 #pragma mark - Public
-- (void)show
-{
+
+- (void)show {
     [self showAnimated:YES];
 }
 
-- (void)showAnimated:(BOOL)animated
-{
+- (void)showAnimated:(BOOL)animated {
     [self showInView:[UIApplication sharedApplication].keyWindow.rootViewController.view animated:animated network:YES message:nil];
 }
 
-- (void)showAnimated:(BOOL)animated message:(NSString *)message
-{
+- (void)showAnimated:(BOOL)animated message:(NSString *)message {
     [self showInView:[UIApplication sharedApplication].keyWindow.rootViewController.view animated:animated network:YES message:message];
 }
 
-
-- (void)showInView:(UIView *)view animated:(BOOL)animated network:(BOOL)network message:(NSString *)message
-{
+- (void)showInView:(UIView *)view animated:(BOOL)animated network:(BOOL)network message:(NSString *)message {
     self.activityIndicatorview.frame = view.bounds;
     [view addSubview:self.activityIndicatorview];
-
+    
     [view addConstraint:[NSLayoutConstraint constraintWithItem:self.activityIndicatorview
-                                                                           attribute:NSLayoutAttributeWidth
-                                                                           relatedBy:NSLayoutRelationEqual
-                                                                              toItem:view
-                                                                           attribute:NSLayoutAttributeWidth
-                                                                          multiplier:1.0
-                                                                            constant:0.0]];
+                                                     attribute:NSLayoutAttributeWidth
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:view
+                                                     attribute:NSLayoutAttributeWidth
+                                                    multiplier:1.0
+                                                      constant:0.0]];
     [view addConstraint:[NSLayoutConstraint constraintWithItem:self.activityIndicatorview
-                                                                           attribute:NSLayoutAttributeHeight
-                                                                           relatedBy:NSLayoutRelationEqual
-                                                                              toItem:view
-                                                                           attribute:NSLayoutAttributeHeight
-                                                                          multiplier:1.0
-                                                                            constant:0.0]];
+                                                     attribute:NSLayoutAttributeHeight
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:view
+                                                     attribute:NSLayoutAttributeHeight
+                                                    multiplier:1.0
+                                                      constant:0.0]];
     [view addConstraint:[NSLayoutConstraint constraintWithItem:self.activityIndicatorview
-                                                                           attribute:NSLayoutAttributeCenterX
-                                                                           relatedBy:NSLayoutRelationEqual
-                                                                              toItem:view
-                                                                           attribute:NSLayoutAttributeCenterX
-                                                                          multiplier:1.0
-                                                                            constant:0.0]];
+                                                     attribute:NSLayoutAttributeCenterX
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:view
+                                                     attribute:NSLayoutAttributeCenterX
+                                                    multiplier:1.0
+                                                      constant:0.0]];
     [view addConstraint:[NSLayoutConstraint constraintWithItem:self.activityIndicatorview
-                                                                           attribute:NSLayoutAttributeCenterY
-                                                                           relatedBy:NSLayoutRelationEqual
-                                                                              toItem:view
-                                                                           attribute:NSLayoutAttributeCenterY
-                                                                          multiplier:1.0
-                                                                            constant:0.0]];
-    if (animated)
-    {
+                                                     attribute:NSLayoutAttributeCenterY
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:view
+                                                     attribute:NSLayoutAttributeCenterY
+                                                    multiplier:1.0
+                                                      constant:0.0]];
+    if (animated) {
         self.activityIndicatorview.alpha = 0;
         [UIView animateWithDuration:kActivityIndicatorAnimationDuration
-                         animations:^
-                                    {
-                                        self.activityIndicatorview.alpha = 1;
-                                    }];
-    }
-    else
-    {
+                         animations:^{
+            self.activityIndicatorview.alpha = 1;
+        }];
+    } else {
         self.activityIndicatorview.alpha = 1;
     }
-    if (network) [self ShowNetworkActivity];
-    if (message) [self.activityIndicatorview setMessage:message];
+    if (network) {
+        [self ShowNetworkActivity];
+    }
+    if (message) {
+        [self.activityIndicatorview setMessage:message];
+    }
 }
 
-- (void)hideAnimated:(BOOL)animated network:(BOOL)network
-{
-    if (animated)
-    {
+- (void)hideAnimated:(BOOL)animated network:(BOOL)network {
+    if (animated) {
         self.activityIndicatorview.alpha = 1;
         [UIView animateWithDuration:kActivityIndicatorAnimationDuration
-                         animations:^
-                                    {
-                                        self.activityIndicatorview.alpha = 0;
-                                    }
-                         completion:^(BOOL finished)
-                                    {
-                                        [self.activityIndicatorview removeFromSuperview];
-                                        self.activityIndicatorview.alpha = 1;
-                                    }];
-    }
-    else
-    {
+                         animations:^{
+            self.activityIndicatorview.alpha = 0;
+        }
+                         completion:^(BOOL finished) {
+            [self.activityIndicatorview removeFromSuperview];
+            self.activityIndicatorview.alpha = 1;
+        }];
+    } else {
         [self.activityIndicatorview removeFromSuperview];
         self.activityIndicatorview.alpha = 1;
     }
-    if (network) [self HideNetworkActivity];
+    if (network) {
+        [self HideNetworkActivity];
+    }
 }
 
-- (void)hideAnimated:(BOOL)animated;
-{
+- (void)hideAnimated:(BOOL)animated {
     [self hideAnimated:animated network:YES];
 }
 
-- (void)hide
-{
+- (void)hide {
     [self hideAnimated:YES];
 }
 
-- (void)ShowNetworkActivity
-{
-    ShowNetworkActivityIndicator();
+- (void)ShowNetworkActivity {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
-- (void)HideNetworkActivity
-{
-    HideNetworkActivityIndicator();
+- (void)HideNetworkActivity {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 @end

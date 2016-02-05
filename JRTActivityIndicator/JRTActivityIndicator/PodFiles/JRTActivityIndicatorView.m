@@ -27,8 +27,7 @@
 
 @implementation JRTActivityIndicatorView
 
--(void)setMessage:(NSString *)message
-{
+- (void)setMessage:(NSString *)message {
     self.messageLabel.text = message;
 }
 
