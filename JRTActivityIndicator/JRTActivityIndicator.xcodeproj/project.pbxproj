@@ -69,12 +69,12 @@
 			isa = PBXGroup;
 			children = (
 				31ABA5DE1C50305D002BD5E9 /* PodFiles */,
+				31ABA5CD1C502FE6002BD5E9 /* Supporting Files */,
 				31ABA5D01C502FE6002BD5E9 /* AppDelegate.h */,
 				31ABA5D11C502FE6002BD5E9 /* AppDelegate.m */,
 				31ABA5D31C502FE6002BD5E9 /* Assets.xcassets */,
-				31ABA5D51C502FE6002BD5E9 /* LaunchScreen.storyboard */,
 				31ABA5D81C502FE6002BD5E9 /* Info.plist */,
-				31ABA5CD1C502FE6002BD5E9 /* Supporting Files */,
+				31ABA5D51C502FE6002BD5E9 /* LaunchScreen.storyboard */,
 				31ABA5E71C50308C002BD5E9 /* ViewController.h */,
 				31ABA5E81C50308C002BD5E9 /* ViewController.m */,
 				31ABA5E91C50308C002BD5E9 /* ViewController.xib */,
@@ -87,7 +87,7 @@
 			children = (
 				31ABA5CE1C502FE6002BD5E9 /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		31ABA5DE1C50305D002BD5E9 /* PodFiles */ = {
@@ -192,6 +192,7 @@
 				31ABA5D61C502FE6002BD5E9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
