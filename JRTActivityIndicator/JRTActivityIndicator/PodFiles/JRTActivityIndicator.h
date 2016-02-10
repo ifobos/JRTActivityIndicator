@@ -20,6 +20,8 @@
 
 @import UIKit;
 
+#pragma mark - Protocol
+
 /*!
  Protocol that should conform the custom view to be presented as activity indicator
  */
@@ -41,6 +43,8 @@
  */
 @interface JRTActivityIndicator : NSObject
 
+#pragma mark - Configuration
+
 /*!
  Method used to set the name of the nib that contains the view that will be presented
  as activity indicator, the kind of sight inside the nib must conform to 
@@ -50,6 +54,8 @@
                 indicator, the nib should be in the main bundle.
  */
 + (void)setViewNibName:(NSString *)nibName;
+
+#pragma mark - Use
 
 /*!
  Presents the activity indicator with the default settings, this is animated in full 

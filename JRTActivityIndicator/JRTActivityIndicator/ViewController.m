@@ -19,34 +19,26 @@
 @implementation ViewController
 
 - (IBAction)show:(id)sender {
-    JRTActivityIndicator *ai = [JRTActivityIndicator new];
-    [ai show];
+    JRTActivityIndicator *activityIndicator = [JRTActivityIndicator new];
+    [activityIndicator show];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0e9 * 5), dispatch_get_main_queue(), ^(void) {
-        [ai hide];
-    });
-}
-
-- (IBAction)showNoAnimated:(id)sender {
-    JRTActivityIndicator *ai = [JRTActivityIndicator new];
-    [ai showAnimated:NO];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0e9 * 5), dispatch_get_main_queue(), ^(void) {
-        [ai hide];
+        [activityIndicator hide];
     });
 }
 
 - (IBAction)showWithMessage:(id)sender {
-    JRTActivityIndicator *ai = [JRTActivityIndicator new];
-    [ai showAnimated:YES message:@"Example"];
+    JRTActivityIndicator *activityIndicator = [JRTActivityIndicator new];
+    [activityIndicator showWithMessage:@"Example"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0e9 * 5), dispatch_get_main_queue(), ^(void) {
-        [ai hide];
+        [activityIndicator hide];
     });
 }
 
 - (IBAction)showInView:(id)sender {
-    JRTActivityIndicator *ai = [JRTActivityIndicator new];
-    [ai showInView:self.exampleView animated:YES network:NO message:@"Example"];
+    JRTActivityIndicator *activityIndicator = [JRTActivityIndicator new];
+    [activityIndicator showInView:self.exampleView animated:YES network:NO message:@"Example"];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1.0e9 * 5), dispatch_get_main_queue(), ^(void) {
-        [ai hide];
+        [activityIndicator hide];
     });
 }
 
