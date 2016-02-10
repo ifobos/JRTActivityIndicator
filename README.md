@@ -9,4 +9,4 @@ Installation
 >pod 'JRTActivityIndicator'
 
 ####Source Code Method:-
-Just drag and drop **JRTActivityIndicator** directory from demo project to your project. That's it.
+Just drag and drop **PodFiles** directory from demo project to your project. That's it.
