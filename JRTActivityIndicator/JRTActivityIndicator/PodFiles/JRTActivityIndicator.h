@@ -20,23 +20,69 @@
 
 @import UIKit;
 
+/*!
+ Protocol that should conform the custom view to be presented as activity indicator
+ */
 @protocol JRTActivityIndicatorViewProtocol
 
+/*!
+ Method to get the text that appears within the activity indicator.
+ 
+ @param message It contains the short text that explains the activity indicator, 
+                by default this is Loading.
+ */
 - (void)setMessage:(NSString *)message;
 
 @end
 
+/*!
+ JRTActivityIndicator, is a class that allows you to present a view that is an 
+ activity indicator.
+ */
 @interface JRTActivityIndicator : NSObject
 
-- (NSString *)ViewNibName;
+/*!
+ Method used to set the name of the nib that contains the view that will be presented
+ as activity indicator, the kind of sight inside the nib must conform to 
+ JRTActivityIndicatorViewProtocol.
+ 
+ @param nibName the name of the nib containing view will be presented as activity 
+                indicator, the nib should be in the main bundle.
+ */
++ (void)setViewNibName:(NSString *)nibName;
 
+/*!
+ Presents the activity indicator with the default settings, this is animated in full 
+ screen with default message and activating network activity.
+ */
 - (void)show;
-- (void)showAnimated:(BOOL)animated;
-- (void)showAnimated:(BOOL)animated message:(NSString *)message;
+
+/*!
+ Presents animated the activity indicator in full screen with custom message and
+ activating network activity.
+
+ 
+ @param message Text to be submitted in the activity indicator explaining the action
+                that is taking place.
+ */
+- (void)showWithMessage:(NSString *)message;
+
+/*!
+ Presents the activity indicator with custom parameters.
+ 
+ @param view     view containing the activity indicator.
+ @param animated Boolean that determines whether the activity indicator is presented
+                 animated.
+ @param network  Boolean that determines whether the network activity indicator will 
+                 be activated.
+ @param message  Text to be submitted in the activity indicator explaining the action
+                 that is taking place.
+ */
 - (void)showInView:(UIView *)view animated:(BOOL)animated network:(BOOL)network message:(NSString *)message;
+
+/*!
+ This method removes the indicator activity presented.
+ */
 - (void)hide;
-- (void)hideAnimated:(BOOL)animated;
-- (void)ShowNetworkActivity;
-- (void)HideNetworkActivity;
 
 @end

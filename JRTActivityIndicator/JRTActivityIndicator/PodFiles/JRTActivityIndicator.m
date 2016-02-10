@@ -24,22 +24,32 @@
 @interface JRTActivityIndicator ()
 
 @property (nonatomic, strong) UIView<JRTActivityIndicatorViewProtocol> *activityIndicatorview;
-
 @end
 
 CGFloat const kActivityIndicatorAnimationDuration = 0.35;
 
 @implementation JRTActivityIndicator
 
+static NSString *JRTActivityIndicatorViewNibName;
+
+#pragma mark - Class
+
++ (void)setViewNibName:(NSString *)nibName {
+    JRTActivityIndicatorViewNibName = nibName;
+}
+
 #pragma mark - Getters
 
-- (NSString *)ViewNibName {
-    return @"JRTActivityIndicatorView";
+- (NSString *)viewNibName {
+    if (!JRTActivityIndicatorViewNibName) {
+        JRTActivityIndicatorViewNibName = @"JRTActivityIndicatorView";
+    }
+    return JRTActivityIndicatorViewNibName;
 }
 
 - (UIView<JRTActivityIndicatorViewProtocol> *)activityIndicatorview {
     if (!_activityIndicatorview) {
-        UINib *nib = [UINib nibWithNibName:[self ViewNibName] bundle:nil];
+        UINib *nib = [UINib nibWithNibName:[self viewNibName] bundle:nil];
         _activityIndicatorview = [[nib instantiateWithOwner:self options:nil] firstObject];
     }
     return _activityIndicatorview;
@@ -48,15 +58,11 @@ CGFloat const kActivityIndicatorAnimationDuration = 0.35;
 #pragma mark - Public
 
 - (void)show {
-    [self showAnimated:YES];
+    [self showWithMessage:nil];
 }
 
-- (void)showAnimated:(BOOL)animated {
-    [self showInView:[UIApplication sharedApplication].keyWindow.rootViewController.view animated:animated network:YES message:nil];
-}
-
-- (void)showAnimated:(BOOL)animated message:(NSString *)message {
-    [self showInView:[UIApplication sharedApplication].keyWindow.rootViewController.view animated:animated network:YES message:message];
+- (void)showWithMessage:(NSString *)message {
+    [self showInView:[[[UIApplication sharedApplication] delegate] window] animated:YES network:YES message:message];
 }
 
 - (void)showInView:(UIView *)view animated:(BOOL)animated network:(BOOL)network message:(NSString *)message {
@@ -128,12 +134,9 @@ CGFloat const kActivityIndicatorAnimationDuration = 0.35;
     }
 }
 
-- (void)hideAnimated:(BOOL)animated {
-    [self hideAnimated:animated network:YES];
-}
 
 - (void)hide {
-    [self hideAnimated:YES];
+    [self hideAnimated:YES network:YES];
 }
 
 - (void)ShowNetworkActivity {
